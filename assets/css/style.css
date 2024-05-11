@@ -1,0 +1,214 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family:'Times New Roman', Times, serif, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "navbar"
+        "filtro"
+        "main"
+        "footer";
+}
+.navbar {
+    grid-area: navbar;
+    background-color: #215fbc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.navbar-logo {
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+#expand-toggle {
+    display: none;
+}
+.menu-icon {
+    color: white;
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+.navbar-nav {
+    width: 100%;
+    height: 0;
+    background-color: #215fbc;
+}
+.nav-link {
+    display: block;
+    padding: 1rem;
+    color: white;
+}
+.nav-link:hover {
+    background-color: #e0e1dd;
+    color: black;
+}
+#expand-toggle:checked ~ .navbar-nav {
+    height: auto;
+    padding: 1rem 0;
+}
+.filtro {
+    grid-area: filtro;
+    background-color: #ebeff1;
+    padding: 1rem;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.filtro-seleccion {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+}
+.cars{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    overflow-y: auto;
+    height: calc(120vh - 25rem);
+}
+.car {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dcebf2;
+    border-radius: 1rem;
+}
+.car:hover {
+    border: 1px solid #dcebf2;
+    box-shadow: 0 0 0 2px rgba(0, 131, 194, 0.1);
+}
+.car-img {
+    width: 100%;
+    height: 35vh;
+    padding: 1.5rem;
+    object-fit: cover;
+}
+.car-divider {
+    width: 100%;
+    border-bottom: 2px solid #dcebf2;
+}
+.car-body {
+    width: 100%;
+    height: 4rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.car-btn {
+    text-align: center;
+    padding: 0.2rem 1rem;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #215fbc;
+    color: white;
+    height: 30px;
+}
+.car-btn:hover {
+    background-color: #bcc1c3;
+    color: black;
+}
+.paginacion {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem; 
+}
+.page-link {
+    background-color: white;
+    border: 1px solid #215fbc;
+    color: #215fbc;
+    font-size: 0.7rem;
+    padding: 0.2rem 1rem;
+    height: 30px;
+    align-content: center;
+
+}
+.page-link:first-child {
+    border-radius: .3rem 0 0 .3rem;
+}
+.page-link:last-child {
+    border-radius: 0 .3rem .3rem 0;
+}
+.page-link:hover {
+    background-color: #dcebf2;
+    color: #215fbc;
+}
+.footer {
+    grid-area: footer;
+    background-color: #051f4e;
+    color:white;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer a {
+    color: white;
+}
+.footer p {
+    font-size: 1rem;
+}
+
+
+
+@media screen and (min-width: 576px) {
+    .contenedor {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "navbar filtro"
+            "navbar main"
+            "footer main";
+    }
+
+    
+    .menu-icon {
+        display: none;
+    }
+    .navbar {
+        flex-direction: column;
+        justify-content: left;
+    }
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+    }
+    .nav-link {
+        font-size: 1rem;
+    }
+    .navbar-logo {
+        padding: 2rem;
+    }
+    .cars {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        height: calc(100vh - 14rem);
+    }
+}
